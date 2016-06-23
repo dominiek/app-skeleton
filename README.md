@@ -29,6 +29,6 @@ The following command serves all HTML/JS/CSS and watches all changes to `ui/*.js
 npm start
 ```
 
-UI is running at http://localhost:3000/
+UI is running at [http://localhost:3000/](http://localhost:3000/)
 
 To check [StandardJS](http://standardjs.com/) compliancy run `standard` in the project root.
