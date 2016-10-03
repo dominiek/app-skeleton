@@ -4,15 +4,19 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/main.jsx',
+  entry: {
+    vendor: ['jquery', 'async', 'react', 'react-dom', 'react-router'],
+    app: './src/main.jsx'
+  },
   output: {
     publicPath: '/',
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].[chunkhash].js'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
+      minify: false
     }),
     new webpack.ProvidePlugin({
       '$': 'jquery',

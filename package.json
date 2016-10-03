@@ -13,7 +13,6 @@
     "jquery": "*",
     "async": "*",
     "react-router": "*",
-    "history": "*",
     "react": "*",
     "react-dom": "*",
     "webpack": "*",
