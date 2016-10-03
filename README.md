@@ -44,6 +44,6 @@ To check [StandardJS](http://standardjs.com/) compliancy run `standard` in the p
 * `public/styles/app.css` - Custom app css (overrides Bootstrap styles)
 * `public/index.html` - App HTML container (only used for initial page meta-data and initialization)
 * `scripts/serve.js` - Simple Express server that serves `public/` static content (compressed). Non-static hits serve `public/index.html`
-* `ui/components/*.jsx` - React components for UI
-* `ui/components/main.jsx` - Main UI entrypoint and Router (uses pushState by default)
-* `ui/utils/*` - Location of helper JS libs, example of Api client class
+* `src/components/*.jsx` - React components for UI
+* `src/components/main.jsx` - Main UI entrypoint and Router (uses pushState by default)
+* `src/utils/*` - Location of helper JS libs, example of Api client class

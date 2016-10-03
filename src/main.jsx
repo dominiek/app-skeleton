@@ -1,12 +1,14 @@
 /* global window, $, jQuery */
 
 /* jQuery as global */
-import { $, jQuery } from 'jquery'
+var $ = require('jquery')
 window.$ = $
+var jQuery = require('jquery')
 window.jQuery = jQuery
 
 /* Semantic UI, as extension of jQuery */
 import '../semantic/dist/semantic.css'
+
 require('../semantic/dist/components/dimmer')
 require('../semantic/dist/components/transition')
 require('../semantic/dist/components/dropdown')

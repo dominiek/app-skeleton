@@ -24,7 +24,8 @@
     "style-loader": "*",
     "css-loader": "*",
     "file-loader": "*",
-    "url-loader": "*"
+    "url-loader": "*",
+    "html-webpack-plugin": "*"
   },
   "devDependencies": {
     "standard": "*"

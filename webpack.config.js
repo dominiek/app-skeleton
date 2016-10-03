@@ -1,12 +1,25 @@
+
 var path = require('path')
+var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './ui/main.jsx',
+  entry: './src/main.jsx',
   output: {
-    publicPath: '/js/',
-    path: path.join(__dirname, 'public', 'js'),
+    publicPath: '/',
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    }),
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery',
+      'window.jQuery': 'jquery'
+    })
+  ],
   module: {
     loaders: [
 

@@ -8,10 +8,10 @@ var app = express();
 app.set('env', process.env.NODE_ENV || 'dev');
 
 app.use(compression())
-app.use(express.static('public'));
+app.use(express.static('dist'));
 
 app.use(function(req, res, next) {
-  res.sendFile(path.resolve(__dirname, '../public', 'index.html'))
+  res.sendFile(path.resolve(__dirname, '../dist', 'index.html'))
 });
 
 var server = app.listen(3000, function () {
