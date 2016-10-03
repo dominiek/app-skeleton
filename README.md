@@ -4,7 +4,7 @@
 Here's an app skeleton that binds together common frameworks du-jour:
 
 * [Babel](https://babeljs.io/)
-* [Bootstrap](http://getbootstrap.com/)
+* [Semantic UI](http://semantic-ui.com/)
 * [Browserify](http://browserify.org/)
 * [ES6](https://babeljs.io/docs/learn-es2015/)
 * [React](https://facebook.github.io/react/)
@@ -19,6 +19,9 @@ Run in the project root folder:
 
 ```bash
 npm install
+npm install -g gulp
+npm install semantic-ui # Select defaults
+cd semantic; gulp build
 ```
 
 ## Run

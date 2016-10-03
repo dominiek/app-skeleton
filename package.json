@@ -1,18 +1,27 @@
 
 {
   "name": "app-skeleton",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "scripts": {
     "build": "browserify --extension=.jsx ui/main.jsx | uglifyjs -cm > public/js/main.js",
     "start": "node scripts/serve.js & watchify --extension=.jsx -o public/js/main.js -v -d ui/main.jsx"
   },
   "browser": {
-    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js"
+    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
+    "sui": "./semantic/dist/semantic.js"
+  },
+  "browserify-shim": {
+    "sui": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
   },
   "browserify": {
     "transform": [
-      "babelify"
+      "babelify",
+      "browserify-shim"
     ]
   },
   "babel": {
@@ -27,8 +36,8 @@
   "dependencies": {
     "express": "*",
     "compression": "*",
+    "browserify-shim": "*",
     "jquery": "*",
-    "bootstrap": "*",
     "async": "*",
     "react-router": "*",
     "history": "*",
@@ -39,7 +48,6 @@
     "babel-plugin-add-module-exports": "0.1.2"
   },
   "devDependencies": {
-    "browserify": "*",
     "babelify": "*",
     "watchify": "*",
     "uglifyjs": "*",
