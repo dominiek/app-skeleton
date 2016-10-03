@@ -4,53 +4,29 @@
   "version": "0.0.2",
   "description": "",
   "scripts": {
-    "build": "browserify --extension=.jsx ui/main.jsx | uglifyjs -cm > public/js/main.js",
-    "start": "node scripts/serve.js & watchify --extension=.jsx -o public/js/main.js -v -d ui/main.jsx"
-  },
-  "browser": {
-    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
-    "sui": "./semantic/dist/semantic.js"
-  },
-  "browserify-shim": {
-    "sui": {
-      "depends": [
-        "jquery:jQuery"
-      ]
-    }
-  },
-  "browserify": {
-    "transform": [
-      "babelify",
-      "browserify-shim"
-    ]
-  },
-  "babel": {
-    "plugins": [
-      "add-module-exports"
-    ],
-    "presets": [
-      "react",
-      "es2015"
-    ]
+    "build": "webpack -p",
+    "start": "webpack -w"
   },
   "dependencies": {
     "express": "*",
     "compression": "*",
-    "browserify-shim": "*",
     "jquery": "*",
     "async": "*",
     "react-router": "*",
     "history": "*",
     "react": "*",
     "react-dom": "*",
-    "babel-preset-react": "*",
+    "webpack": "*",
+    "babel-plugin-add-module-exports": "*",
     "babel-preset-es2015": "*",
-    "babel-plugin-add-module-exports": "0.1.2"
+    "babel-preset-react": "*",
+    "babel-loader": "*",
+    "style-loader": "*",
+    "css-loader": "*",
+    "file-loader": "*",
+    "url-loader": "*"
   },
   "devDependencies": {
-    "babelify": "*",
-    "watchify": "*",
-    "uglifyjs": "*",
     "standard": "*"
   },
   "standard": {

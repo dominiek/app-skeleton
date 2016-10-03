@@ -7,7 +7,7 @@ export default React.createClass({
     return (
       <div className='app'>
         <div className='ui top fixed inverted menu'>
-          <Link to='/home' className='item active'>Home</Link>
+          <Link to='/home' className='item active'><i className='ui icon home' />Home</Link>
         </div>
 
         <div className='app-view-container ui container'>

@@ -1,5 +1,5 @@
 node_modules
 .DS_Store
-public/js/*.js
+public/js/*.*
 semantic
 semantic.json
