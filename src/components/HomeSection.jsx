@@ -4,15 +4,13 @@ const React = require('react')
 
 export default React.createClass({
   componentDidMount () {
-    $('.navbar-nav li').removeClass('active')
-    $('.navbar-nav li.home').addClass('active')
+    $('.top.fixed.menu .item').removeClass('active')
+    $('.top.fixed.menu .item.home').addClass('active')
   },
   render () {
     return (
-      <div className='row'>
-        <div className='home-section col-md-12'>
-          Example View
-        </div>
+      <div className='home-section'>
+        Welcome to App Skeleton.
       </div>
     )
   }

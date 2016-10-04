@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "express": "*",
+    "body-parser": "*",
     "compression": "*",
     "jquery": "*",
     "async": "*",

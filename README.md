@@ -44,6 +44,16 @@ UI is running at [http://localhost:3000/](http://localhost:3000/)
 
 To check [StandardJS](http://standardjs.com/) compliancy run `standard` in the project root.
 
+## Running the API example
+
+The `/items` view shows an example of basic CRUD interaction with the server-side JSON API. In order to run the API:
+
+```bash
+node script/api.js
+```
+
+The example is using simple React/SemanticUI views and uses a REST JSON API. I'm planning to change this to a GraphQL+Redux example soon.
+
 ## Directory Structure
 
 * `package.json` - Configure dependencies, Babel transpilers and support scripts
@@ -55,3 +65,11 @@ To check [StandardJS](http://standardjs.com/) compliancy run `standard` in the p
 * `src/components/*.jsx` - React components for UI
 * `src/components/main.jsx` - Main UI entrypoint and Router (uses pushState by default)
 * `src/utils/*` - Location of helper JS libs, example of Api client class
+
+## Wishlist
+
+* Add Redux async collection example
+* GraphQL example
+* Webpack code hotswapping
+* Incorporate some of [these Webpack heuristics](https://medium.com/@okonetchnikov/long-term-caching-of-static-assets-with-webpack-1ecb139adb95#.i93zpqhb8)
+* Show JWT authentication example

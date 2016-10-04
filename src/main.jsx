@@ -1,11 +1,5 @@
 /* global window, $, jQuery */
 
-/* jQuery as global */
-var $ = require('jquery')
-window.$ = $
-var jQuery = require('jquery')
-window.jQuery = jQuery
-
 /* Semantic UI, as extension of jQuery */
 import '../semantic/dist/semantic.css'
 
@@ -23,16 +17,16 @@ const ReactDOM = require('react-dom')
 
 import { Router, Route, browserHistory } from 'react-router'
 
-let history = browserHistory
-
 const App = require('./components/App')
 const HomeSection = require('./components/HomeSection')
+const ItemsSection = require('./components/ItemsSection')
 
 ReactDOM.render(
-  <Router history={history}>
+  <Router history={browserHistory}>
     <Route component={App}>
       <Route path='/' component={HomeSection} />
       <Route path='/home' component={HomeSection} />
+      <Route path='/items' component={ItemsSection} />
     </Route>
   </Router>,
   document.getElementById('main')
