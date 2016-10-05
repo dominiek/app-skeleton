@@ -3,27 +3,28 @@
 const React = require('react')
 const Api = require('./../../utils/Api')
 
-export default React.createClass({
-  getInitialState () {
-    return {
+export default class CreateItemDialog extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
       loading: false,
       error: null
     }
-  },
+  }
   componentDidMount () {
     this.open()
-  },
+  }
   componentWillUmount () {
     this.close()
-  },
+  }
   open () {
     $(this.modal)
       .modal({ detachable: false })
       .modal('show')
-  },
+  }
   close () {
     $(this.modal).modal('hide')
-  },
+  }
   render () {
     let { loading, error } = this.state
     return (
@@ -33,7 +34,7 @@ export default React.createClass({
         </div>
         <div className='content'>
           { error && (<div className='ui error message'>{error.message}</div>)}
-          <form className='ui form' onSubmit={this._save}>
+          <form className='ui form' onSubmit={(e) => this._save(e)}>
             <div className='field'>
               <label>Name</label>
               <input type='text' ref='nameInput' name='name' placeholder='' />
@@ -41,12 +42,12 @@ export default React.createClass({
           </form>
         </div>
         <div className='actions'>
-          <button className={loading ? 'ui primary loading button' : 'ui primary button'} type='submit' onClick={this._save}>Create</button>
-          <button type='button' className='ui button' onClick={this._close}>Close</button>
+          <button className={loading ? 'ui primary loading button' : 'ui primary button'} type='submit' onClick={(e) => this._save(e)}>Create</button>
+          <button type='button' className='ui button' onClick={(e) => this._close(e)}>Close</button>
         </div>
       </div>
     )
-  },
+  }
   _save (e) {
     e && e.preventDefault()
     let params = {
@@ -61,10 +62,10 @@ export default React.createClass({
         this._close()
       }, 500)
     })
-  },
+  }
   _close (e) {
     e && e.preventDefault()
     this.close()
     this.props.onClose && this.props.onClose()
   }
-})
+}

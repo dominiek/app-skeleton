@@ -20,6 +20,8 @@ _Note: The purpose of this skeleton is to provide a simple UI skeleton that can 
 * All CSS and assets served via Webpack/StyleLoader
 * Uses Semantic UI as a rich UI element base
 * Bundles are split between vendor and app for better bundling/loading performance
+* All files are organized according to modern conventions. Component directory structure allows for expansion of multiple apps / subdomains
+* Uses ES6 style React components
 
 ## Install Dependencies
 

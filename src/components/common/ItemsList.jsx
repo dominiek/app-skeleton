@@ -2,16 +2,17 @@
 const React = require('react')
 const Api = require('./../../utils/Api')
 
-export default React.createClass({
-  getInitialState () {
-    return {
+export default class ItemsList extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
       loading: true,
       error: null
     }
-  },
+  }
   componentDidMount () {
     this.fetch()
-  },
+  }
   render () {
     let { loading, error, result } = this.state
     return (
@@ -38,11 +39,11 @@ export default React.createClass({
         ) }
       </div>
     )
-  },
+  }
   fetch () {
     Api.request('GET', '/items', {}, (error, result) => {
       let loading = false
       this.setState({ loading, result, error })
     })
   }
-})
+}

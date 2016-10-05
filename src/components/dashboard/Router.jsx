@@ -8,7 +8,7 @@ const App = require('./App')
 const HomeSection = require('./HomeSection')
 const ItemsSection = require('./ItemsSection')
 
-export default React.createClass({
+export default class DashboardRouter extends React.Component {
   render () {
     return (
       <Router history={browserHistory}>
@@ -20,4 +20,4 @@ export default React.createClass({
       </Router>
     )
   }
-})
+}

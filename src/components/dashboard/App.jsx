@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 
 import '../../styles/dashboard.css'
 
-export default React.createClass({
+export default class App extends React.Component {
   render () {
     return (
       <div className='app'>
@@ -21,4 +21,4 @@ export default React.createClass({
       </div>
     )
   }
-})
+}
