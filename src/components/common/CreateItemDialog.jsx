@@ -1,7 +1,7 @@
 /* global $ */
 
 const React = require('react')
-const Api = require('./../utils/Api')
+const Api = require('./../../utils/Api')
 
 export default React.createClass({
   getInitialState () {

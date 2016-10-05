@@ -1,9 +1,9 @@
 /* global $ */
 
 const React = require('react')
-const ItemsList = require('./ItemsList')
-const CreateItemDialog = require('./CreateItemDialog')
-const Api = require('./../utils/Api')
+const ItemsList = require('./../common/ItemsList')
+const CreateItemDialog = require('./../common/CreateItemDialog')
+const Api = require('./../../utils/Api')
 
 export default React.createClass({
   getInitialState () {
