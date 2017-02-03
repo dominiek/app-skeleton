@@ -1,6 +1,7 @@
 
 const React = require('react')
 const Api = require('./../../utils/Api')
+import { List, Icon } from 'semantic-ui-react'
 
 export default class ItemsList extends React.Component {
   constructor (props) {
@@ -21,21 +22,21 @@ export default class ItemsList extends React.Component {
         { error && (<div className='ui error message'>{error.message}</div>) }
         { result && result.length === 0 && (<div className='ui message'>No items created yet.</div>) }
         { result && result.length > 0 && (
-          <div className='ui divided list'>
+          <List divided verticalAlign='middle'>
             {result.map((item) => {
               return (
-                <div className='item' key={item.id}>
-                  <div className='right floated content'>
+                <List.Item key={item.id}>
+                  <List.Content floated='right'>
                     <button className='ui tiny red icon button' onClick={(e) => this.props.onDelete(item, e)}><i className='trash icon' /></button>
-                  </div>
-                  <i className='cube icon' />
-                  <div className='content'>
+                  </List.Content>
+                  <Icon name='cube' />
+                  <List.Content>
                     {item.name}
-                  </div>
-                </div>
+                  </List.Content>
+                </List.Item>
               )
             })}
-          </div>
+          </List>
         ) }
       </div>
     )

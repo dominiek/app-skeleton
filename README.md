@@ -4,7 +4,7 @@
 Here's an app skeleton that binds together common frameworks du-jour:
 
 * [Babel](https://babeljs.io/)
-* [Semantic UI](http://semantic-ui.com/)
+* [React Semantic UI](http://react.semantic-ui.com/)
 * [Webpack](http://webpack.github.io/)
 * [ES6](https://babeljs.io/docs/learn-es2015/)
 * [React](https://facebook.github.io/react/)
@@ -29,9 +29,6 @@ Run in the project root folder:
 
 ```bash
 npm install
-npm install -g gulp
-npm install semantic-ui # Select defaults
-cd semantic; gulp build
 ```
 
 ## Run
@@ -40,6 +37,7 @@ The following command serves all HTML/JS/CSS and watches all changes to `src/*.j
 
 ```bash
 npm start
+node scripts/serve.js
 ```
 
 UI is running at [http://localhost:3000/](http://localhost:3000/)

@@ -25,7 +25,11 @@
     "css-loader": "*",
     "file-loader": "*",
     "url-loader": "*",
-    "html-webpack-plugin": "*"
+    "html-webpack-plugin": "*",
+    "superagent": "3.3.1",
+    "semantic-ui-css": "^2.2.4",
+    "semantic-ui-react": "^0.64.5",
+    "babel-core": "*"
   },
   "devDependencies": {
     "standard": "*"

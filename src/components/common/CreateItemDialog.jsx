@@ -1,38 +1,28 @@
-/* global $ */
 
 const React = require('react')
 const Api = require('./../../utils/Api')
+import { Modal } from 'semantic-ui-react'
 
 export default class CreateItemDialog extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       loading: false,
-      error: null
+      error: null,
+      visible: true
     }
   }
-  componentDidMount () {
-    this.open()
-  }
-  componentWillUmount () {
-    this.close()
-  }
-  open () {
-    $(this.modal)
-      .modal({ detachable: false })
-      .modal('show')
-  }
-  close () {
-    $(this.modal).modal('hide')
+  componentWillReceiveProps () {
+    this.setState({visible: true})
   }
   render () {
-    let { loading, error } = this.state
+    let { loading, error, visible } = this.state
     return (
-      <div ref={(n) => { this.modal = n }} className='ui modal'>
-        <div className='header'>
+      <Modal open={visible}>
+        <Modal.Header>
           Create Item
-        </div>
-        <div className='content'>
+        </Modal.Header>
+        <Modal.Content>
           { error && (<div className='ui error message'>{error.message}</div>)}
           <form className='ui form' onSubmit={(e) => this._save(e)}>
             <div className='field'>
@@ -40,13 +30,19 @@ export default class CreateItemDialog extends React.Component {
               <input type='text' ref='nameInput' name='name' placeholder='' />
             </div>
           </form>
-        </div>
-        <div className='actions'>
+        </Modal.Content>
+        <Modal.Actions>
           <button className={loading ? 'ui primary loading button' : 'ui primary button'} type='submit' onClick={(e) => this._save(e)}>Create</button>
           <button type='button' className='ui button' onClick={(e) => this._close(e)}>Close</button>
-        </div>
-      </div>
+        </Modal.Actions>
+      </Modal>
     )
+  }
+  _close (e) {
+    e && e.preventDefault()
+    let visible = false
+    this.setState({visible})
+    this.props.onClose && this.props.onClose()
   }
   _save (e) {
     e && e.preventDefault()
@@ -58,14 +54,7 @@ export default class CreateItemDialog extends React.Component {
       let loading = false
       if (error) return this.setState({error, loading})
       this.setState({loading})
-      setTimeout(() => {
-        this._close()
-      }, 500)
+      this._close()
     })
-  }
-  _close (e) {
-    e && e.preventDefault()
-    this.close()
-    this.props.onClose && this.props.onClose()
   }
 }

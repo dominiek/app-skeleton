@@ -1,6 +1,5 @@
 
 const React = require('react')
-const ReactDOM = require('react-dom')
 
 import { Router, Route, browserHistory } from 'react-router'
 

@@ -1,6 +1,7 @@
 
 const React = require('react')
 import { Link } from 'react-router'
+import { Menu, Icon } from 'semantic-ui-react'
 
 import '../../styles/dashboard.css'
 
@@ -8,13 +9,16 @@ export default class App extends React.Component {
   render () {
     return (
       <div className='app'>
-        <div className='ui top fixed inverted menu'>
+        <Menu fixed='top' inverted>
           <div className='ui container'>
-            <Link to='/home' className='item home'><i className='ui icon home' />Home</Link>
-            <Link to='/items' className='item items'><i className='ui icon list' />Items</Link>
+            <Menu.Item active={(this.props.children.type.name === 'HomeSection')} as={Link} to='/home'>
+              <Icon name='home' /> Home
+            </Menu.Item>
+            <Menu.Item active={(this.props.children.type.name === 'ItemsSection')} as={Link} to='/items'>
+              <Icon name='list' /> Items
+            </Menu.Item>
           </div>
-        </div>
-
+        </Menu>
         <div className='app-view-container ui container'>
           {this.props.children}
         </div>

@@ -1,4 +1,3 @@
-/* global $ */
 
 const React = require('react')
 const ItemsList = require('./../common/ItemsList')
@@ -11,10 +10,6 @@ export default class ItemsSection extends React.Component {
     this.state = {
       showCreateDialog: false
     }
-  }
-  componentDidMount () {
-    $('.top.fixed.menu .item').removeClass('active')
-    $('.top.fixed.menu .item.items').addClass('active')
   }
   render () {
     let { showCreateDialog } = this.state
