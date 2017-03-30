@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "rm -rf ./dist && webpack --progress",
-    "start": "webpack-dev-server --history-api-fallback --port 3000 --progress"
+    "start": "webpack-dev-server --hot --inline --history-api-fallback --port 3000 --progress"
   },
   "dependencies": {
     "async": "^2.2.0",

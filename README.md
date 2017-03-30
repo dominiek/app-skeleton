@@ -22,6 +22,7 @@ _Note: The purpose of this skeleton is to provide a simple UI skeleton that can 
 * Bundles are split between vendor and app for better bundling/loading performance
 * All files are organized according to modern conventions. Component directory structure allows for expansion of multiple apps / subdomains
 * Uses ES6 style React components
+* Code hotswapping
 
 ## Install Dependencies
 
@@ -68,7 +69,6 @@ The example is using simple React/SemanticUI views and uses a REST JSON API. I'm
 
 ## Wishlist
 
-* Webpack code hotswapping
 * Add Relay/GraphQL
 * Common patterns like including image/favicon
 * Incorporate some of [these Webpack heuristics](https://medium.com/@okonetchnikov/long-term-caching-of-static-assets-with-webpack-1ecb139adb95#.i93zpqhb8)
