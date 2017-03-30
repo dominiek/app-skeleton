@@ -1,20 +1,20 @@
 
-const React = require('react')
+import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { Menu, Icon } from 'semantic-ui-react'
 
 import '../../styles/dashboard.css'
 
-export default class App extends React.Component {
+export default class App extends Component {
   render () {
     return (
       <div className='app'>
         <Menu fixed='top' inverted>
           <div className='ui container'>
-            <Menu.Item active={(this.props.children.type.name === 'HomeSection')} as={Link} to='/home'>
+            <Menu.Item active={(this.props.location.pathname === '/home')} as={Link} to='/home'>
               <Icon name='home' /> Home
             </Menu.Item>
-            <Menu.Item active={(this.props.children.type.name === 'ItemsSection')} as={Link} to='/items'>
+            <Menu.Item active={(this.props.location.pathname === '/items')} as={Link} to='/items'>
               <Icon name='list' /> Items
             </Menu.Item>
           </div>

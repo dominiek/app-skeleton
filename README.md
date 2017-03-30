@@ -70,8 +70,9 @@ The example is using simple React/SemanticUI views and uses a REST JSON API. I'm
 
 ## Wishlist
 
-* Add Redux async collection example
-* GraphQL example
+* Webpack dev server
 * Webpack code hotswapping
+* Add Relay/GraphQL
+* Common patterns like including image/favicon
 * Incorporate some of [these Webpack heuristics](https://medium.com/@okonetchnikov/long-term-caching-of-static-assets-with-webpack-1ecb139adb95#.i93zpqhb8)
 * Show JWT authentication example

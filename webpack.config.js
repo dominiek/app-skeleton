@@ -24,6 +24,9 @@ module.exports = {
       'window.jQuery': 'jquery'
     })
   ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module: {
     loaders: [
 
@@ -31,7 +34,7 @@ module.exports = {
       {
         test: /\.js[x]?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['es2015', 'react'],
           plugins: [
@@ -43,7 +46,7 @@ module.exports = {
       // CSS
       {
         include: /\.css$/,
-        loaders: ['style', 'css']
+        loaders: ['style-loader', 'css-loader']
       },
 
       // Fonts
@@ -58,8 +61,5 @@ module.exports = {
         loader: 'file-loader'
       }
     ]
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
   }
 }

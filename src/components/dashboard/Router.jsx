@@ -1,5 +1,5 @@
 
-const React = require('react')
+import React, { Component } from 'react'
 
 import { Router, Route, browserHistory } from 'react-router'
 

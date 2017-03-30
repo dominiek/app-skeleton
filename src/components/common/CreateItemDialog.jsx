@@ -1,5 +1,5 @@
 
-const React = require('react')
+import React, { Component } from 'react'
 const Api = require('./../../utils/Api')
 import { Modal } from 'semantic-ui-react'
 

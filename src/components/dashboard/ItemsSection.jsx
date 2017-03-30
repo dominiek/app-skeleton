@@ -1,10 +1,10 @@
 
-const React = require('react')
+import React, { Component } from 'react'
 const ItemsList = require('./../common/ItemsList')
 const CreateItemDialog = require('./../common/CreateItemDialog')
 const Api = require('./../../utils/Api')
 
-export default class ItemsSection extends React.Component {
+export default class ItemsSection extends Component {
   constructor (props) {
     super(props)
     this.state = {

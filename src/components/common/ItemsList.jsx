@@ -1,5 +1,5 @@
 
-const React = require('react')
+import React, { Component } from 'react'
 const Api = require('./../../utils/Api')
 import { List, Icon } from 'semantic-ui-react'
 
