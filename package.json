@@ -1,6 +1,6 @@
 {
   "name": "app-skeleton",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "scripts": {
     "build": "rm -rf ./dist && webpack --progress",
