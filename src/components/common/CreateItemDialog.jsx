@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 const Api = require('./../../utils/Api')
 import { Modal } from 'semantic-ui-react'
 
-export default class CreateItemDialog extends React.Component {
+export default class CreateItemDialog extends Component {
   constructor (props) {
     super(props)
     this.state = {

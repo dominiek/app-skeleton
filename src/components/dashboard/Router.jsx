@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react'
-
 import { Router, Route, browserHistory } from 'react-router'
 
 const App = require('./App')

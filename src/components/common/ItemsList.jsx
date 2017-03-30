@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 const Api = require('./../../utils/Api')
 import { List, Icon } from 'semantic-ui-react'
 
-export default class ItemsList extends React.Component {
+export default class ItemsList extends Component {
   constructor (props) {
     super(props)
     this.state = {
