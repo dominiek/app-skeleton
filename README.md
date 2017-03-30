@@ -37,7 +37,6 @@ The following command serves all HTML/JS/CSS and watches all changes to `src/*.j
 
 ```bash
 npm start
-node scripts/serve.js
 ```
 
 UI is running at [http://localhost:3000/](http://localhost:3000/)
@@ -65,12 +64,10 @@ The example is using simple React/SemanticUI views and uses a REST JSON API. I'm
 * `src/components/common` - Common components that are shared throughout the app
 * `src/components/dashboard` - Main domain/app folder. Contains an `App.jsx` and `Router.jsx`.
 * `src/main.jsx` - Main entrypoint into application. Multi-app or sub-domain specific apps/logic could be implemented here.
-* `scripts/serve.js` - Simple Express server that serves `dist/` static content (compressed). Non-static hits serve `dist/index.html`
 * `scripts/api.js` - Simple REST JSON server example for the `/items` view in the skeleton
 
 ## Wishlist
 
-* Webpack dev server
 * Webpack code hotswapping
 * Add Relay/GraphQL
 * Common patterns like including image/favicon
