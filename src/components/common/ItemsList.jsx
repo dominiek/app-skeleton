@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-const Api = require('./../../utils/Api')
+import Api from 'utils/Api'
 import { List, Icon } from 'semantic-ui-react'
 
 export default class ItemsList extends Component {

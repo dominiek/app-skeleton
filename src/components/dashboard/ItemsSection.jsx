@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react'
-const ItemsList = require('./../common/ItemsList')
-const CreateItemDialog = require('./../common/CreateItemDialog')
-const Api = require('./../../utils/Api')
+import ItemsList from 'common/ItemsList'
+import CreateItemDialog from 'common/CreateItemDialog'
+import Api from 'utils/Api'
 
 export default class ItemsSection extends Component {
   constructor (props) {

@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import { Router, Route, browserHistory } from 'react-router'
 
-const App = require('./App')
-const HomeSection = require('./HomeSection')
-const ItemsSection = require('./ItemsSection')
+import App from './App'
+import HomeSection from './HomeSection'
+import ItemsSection from './ItemsSection'
 
 export default class DashboardRouter extends React.Component {
   render () {
