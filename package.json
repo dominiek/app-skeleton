@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "rm -rf ./dist && webpack --progress",
-    "start": "webpack-dev-server --port 8000 --progress"
+    "start": "webpack --progress --watch"
   },
   "dependencies": {
     "async": "^2.2.0",
