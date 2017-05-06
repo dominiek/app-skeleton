@@ -49,7 +49,7 @@ To check [StandardJS](http://standardjs.com/) compliancy run `standard` in the p
 The `/items` view shows an example of basic CRUD interaction with the server-side JSON API. In order to run the API:
 
 ```bash
-node script/api.js
+node scripts/api.js
 ```
 
 The example is using simple React/SemanticUI views and uses a REST JSON API. I'm planning to change this to a GraphQL+Redux example soon.
