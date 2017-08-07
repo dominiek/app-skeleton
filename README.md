@@ -69,7 +69,9 @@ The example is using simple React/SemanticUI views and uses a REST JSON API. I'm
 
 ## Wishlist
 
-* Add Relay/GraphQL
+* Make work with more full featured API skeletons like: https://github.com/dominiek/python-api-skeleton
 * Common patterns like including image/favicon
+* Add common useful components
+* Add Relay/GraphQL
 * Incorporate some of [these Webpack heuristics](https://medium.com/@okonetchnikov/long-term-caching-of-static-assets-with-webpack-1ecb139adb95#.i93zpqhb8)
 * Show JWT authentication example
