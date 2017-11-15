@@ -9,6 +9,9 @@ Here's an app skeleton that binds together common frameworks du-jour:
 * [ES6](https://babeljs.io/docs/learn-es2015/)
 * [React](https://facebook.github.io/react/)
 * [React Router](https://github.com/reactjs/react-router)
+* [Redux](https://redux.js.org/)
+* [Redux Form](https://redux-form.com)
+* [Eslint](https://eslint.org/)
 
 _Note: The purpose of this skeleton is to provide a simple UI skeleton that can be supplemented with backend/deployment specific tools (Node, Ethereum, Mobile, etc)._
 
