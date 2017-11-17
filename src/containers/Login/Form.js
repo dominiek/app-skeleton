@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { email, password } from 'utils/validation';
 import FormField from 'components/FormField';
 import { Form, Segment, Button } from 'semantic-ui-react';
 
@@ -16,7 +15,6 @@ const LoginForm = (props) => {
           type="text"
           label="E-mail address"
           placeholder="person@company.com"
-          validate={email}
           icon="user"
           iconPosition="left"
         />
@@ -28,7 +26,6 @@ const LoginForm = (props) => {
           component={FormField}
           icon="lock"
           iconPosition="left"
-          validate={password}
         />
         <Button
           primary

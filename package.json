@@ -2,9 +2,11 @@
   "name": "app-skeleton",
   "version": "0.0.4",
   "description": "",
+  "license": "MIT",
   "scripts": {
     "build": "rm -rf ./dist && webpack -p",
-    "start": "webpack-dev-server --hot --port 3000"
+    "start": "webpack-dev-server --hot --port 3000",
+    "lint": "eslint src"
   },
   "dependencies": {
     "babel-core": "^6.26.0",

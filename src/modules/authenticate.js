@@ -31,7 +31,11 @@ export default createReducer(defaultState, {
 });
 
 export const login = (user) => {
-  return handleRequest(LOGIN, { path: '/login', body: user });
+  return handleRequest(LOGIN, {
+    method: 'POST',
+    path: '/1/users/sessions',
+    body: user,
+  });
 };
 
 export const logout = () => ({

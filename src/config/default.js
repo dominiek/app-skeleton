@@ -1,3 +1,3 @@
 export default {
-  apiRoot: 'http://localhost:5000'
+  apiRoot: 'http://localhost:3005'
 };
