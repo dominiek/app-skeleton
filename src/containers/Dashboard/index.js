@@ -21,11 +21,12 @@ export default class App extends Component {
   }
   componentDidMount() {
     attachPromiseToComponentState(this, async () => {
-      await request({
+      const result = await request({
         method: 'GET',
         path: '/1/users/self',
         token: getLoginToken()
       });
+      return result;
     })();
   }
   render() {
