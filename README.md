@@ -55,7 +55,10 @@ UI is running at [http://localhost:3000/](http://localhost:3000/)
 
 ## TODO
 
+- [ ] Lint
+- [ ] Clean up utils
 - [ ] Finalize directory structure
 - [ ] Add user state (name in dropdown menu)
+- [ ] Use redux for user state
 - [ ] Hook up reset password flow
 - [ ] Focus first input box on load for forms

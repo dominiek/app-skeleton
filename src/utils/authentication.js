@@ -8,6 +8,10 @@ export const saveLoginToken = token => {
   // cookie.save('entryPoint', 'dashboard', { path: '/' });
 };
 
+export const getLoginToken = token => {
+  return localStorage.authToken;
+};
+
 export const clearLoginToken = () => {
   delete localStorage.authToken;
   // cookie.remove('entryPoint', { path: '/' });
