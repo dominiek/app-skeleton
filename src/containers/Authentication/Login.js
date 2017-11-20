@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { push } from 'react-router-redux';
 import {
   Grid,
   Header,
-  Form,
   Segment,
-  Button,
-  Input,
   Message
 } from 'semantic-ui-react';
 import request from 'utils/request';
 import { saveLoginToken } from 'utils/authentication';
-import attachPromiseToComponentState from 'utils/attachPromiseToComponentState';
+import { attachPromiseToComponentState } from 'utils/async';
+import PageCenter from 'components/PageCenter';
 import LoginForm from './LoginForm';
 
 const login = async (params) => {
@@ -23,7 +20,7 @@ const login = async (params) => {
   });
   saveLoginToken(result.token);
   return result;
-}
+};
 
 export default class Login extends Component {
   state = {
@@ -39,40 +36,32 @@ export default class Login extends Component {
     }
   }
   render() {
-    const { error, loading } = this.state;
+    const { error } = this.state;
     const onSubmit = attachPromiseToComponentState(this, login);
     return (
-      <div style={{ height: '100%' }} className="login-section">
-        <Grid
-          style={{ height: '100%' }}
-          centered
-          verticalAlign="middle"
-        >
-          <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as="h2" textAlign="center">
-              Sign In
-            </Header>
-            <Segment.Group>
-              <Segment>
-                { error && (<Message error content={error.message} />) }
-                <LoginForm
-                  onSubmit={onSubmit}
-                />
-              </Segment>
-              <Segment secondary>
-                <Grid>
-                  <Grid.Column floated="left" width={8}>
-                    <Link to="/signup">Create Account</Link>
-                  </Grid.Column>
-                  <Grid.Column floated="right" width={8} textAlign="right">
-                    <a href="/forgot-password" className="secondary">Forgot Password</a>
-                  </Grid.Column>
-                </Grid>
-              </Segment>
-            </Segment.Group>
-          </Grid.Column>
-        </Grid>
-      </div>
+      <PageCenter>
+        <Header as="h2" textAlign="center">
+          Sign In
+        </Header>
+        <Segment.Group>
+          <Segment>
+            { error && (<Message error content={error.message} />) }
+            <LoginForm
+              onSubmit={onSubmit}
+            />
+          </Segment>
+          <Segment secondary>
+            <Grid>
+              <Grid.Column floated="left" width={8}>
+                <Link to="/signup">Create Account</Link>
+              </Grid.Column>
+              <Grid.Column floated="right" width={8} textAlign="right">
+                <a href="/forgot-password" className="secondary">Forgot Password</a>
+              </Grid.Column>
+            </Grid>
+          </Segment>
+        </Segment.Group>
+      </PageCenter>
     );
   }
 }

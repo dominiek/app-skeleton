@@ -1,13 +1,11 @@
 
 import React from 'react';
-import { Form } from 'semantic-ui-react';
 
 export default function FormInput({
   input,
   type,
   label,
   placeholder,
-  meta: { touched },
   as: As = 'input', ...props
 }) {
   function handleChange(e, { value }) {

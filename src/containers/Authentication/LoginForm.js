@@ -11,7 +11,7 @@ const LoginForm = (props) => {
         <Field
           component={FormInput}
           as={Input}
-          name='email'
+          name="email"
           icon="user"
           iconPosition="left"
           placeholder="E-mail Address"
@@ -22,7 +22,7 @@ const LoginForm = (props) => {
         <Field
           component={FormInput}
           as={Input}
-          name='password'
+          name="password"
           iconPosition="left"
           placeholder="Password"
           icon="lock"

@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Grid,
   Header,
-  Form,
   Segment,
-  Button,
-  Input,
-  Message,
-  Checkbox
+  Message
 } from 'semantic-ui-react';
 import SignupForm from './SignupForm';
 import request from 'utils/request';
 import { saveLoginToken } from 'utils/authentication';
-import attachPromiseToComponentState from 'utils/attachPromiseToComponentState';
+import { attachPromiseToComponentState } from 'utils/async';
+import PageCenter from 'components/PageCenter';
 
 const signupAndLogin = async (params) => {
   if (!params.termsAccepted) {
     throw new Error('Oops, you have to agree to the Terms of Service');
   }
-  const user = await request({
+  await request({
     method: 'POST',
     path: '/1/users',
     body: params
@@ -53,30 +49,22 @@ export default class Login extends Component {
     const { error } = this.state;
     const onSubmit = attachPromiseToComponentState(this, signupAndLogin);
     return (
-      <div style={{ height: '100%' }} className="signup-section">
-        <Grid
-          style={{ height: '100%' }}
-          centered
-          verticalAlign="middle"
-        >
-          <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as="h2" textAlign="center">
-              Create Account
-            </Header>
-            <Segment.Group>
-              <Segment>
-                { error && (<Message error content={error.message} />) }
-                <SignupForm
-                  onSubmit={onSubmit}
-                />
-              </Segment>
-              <Segment secondary>
-                Already have an account? <Link to="/login">Login</Link>
-              </Segment>
-            </Segment.Group>
-          </Grid.Column>
-        </Grid>
-      </div>
+      <PageCenter>
+        <Header as="h2" textAlign="center">
+          Create Account
+        </Header>
+        <Segment.Group>
+          <Segment>
+            { error && (<Message error content={error.message} />) }
+            <SignupForm
+              onSubmit={onSubmit}
+            />
+          </Segment>
+          <Segment secondary>
+            Already have an account? <Link to="/login">Login</Link>
+          </Segment>
+        </Segment.Group>
+      </PageCenter>
     );
   }
 }

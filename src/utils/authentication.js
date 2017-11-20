@@ -1,5 +1,4 @@
 
-import request from './request';
 // import cookie from 'react-cookie';
 
 export const saveLoginToken = token => {
@@ -8,7 +7,7 @@ export const saveLoginToken = token => {
   // cookie.save('entryPoint', 'dashboard', { path: '/' });
 };
 
-export const getLoginToken = token => {
+export const getLoginToken = () => {
   return localStorage.authToken;
 };
 

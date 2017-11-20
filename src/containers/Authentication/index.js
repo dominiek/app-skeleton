@@ -7,12 +7,12 @@ import Signup from './Signup';
 import ForgotPassword from './ForgotPassword';
 import ResetPassword from './ResetPassword';
 
-export default () => {
-  return [
-    <Route path="/login" component={Login} />,
-    <Route path="/logout" component={Logout} />,
-    <Route path="/signup" component={Signup} />,
-    <Route path="/forgot-password" component={ForgotPassword} />,
+export default () => (
+  <Switch>
+    <Route path="/login" component={Login} />
+    <Route path="/logout" component={Logout} />
+    <Route path="/signup" component={Signup} />
+    <Route path="/forgot-password" component={ForgotPassword} />
     <Route path="/reset-password" component={ResetPassword} />
-  ]
-};
+  </Switch>
+);

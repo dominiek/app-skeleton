@@ -11,7 +11,7 @@ const SignupForm = (props) => {
         <Field
           component={FormInput}
           as={Input}
-          name='email'
+          name="email"
           icon="user"
           iconPosition="left"
           placeholder="E-mail Address"
@@ -22,7 +22,7 @@ const SignupForm = (props) => {
         <Field
           component={FormInput}
           as={Input}
-          name='username'
+          name="username"
           icon="user"
           iconPosition="left"
           placeholder="Username"
@@ -33,7 +33,7 @@ const SignupForm = (props) => {
         <Field
           component={FormInput}
           as={Input}
-          name='name'
+          name="name"
           icon="id card outline"
           iconPosition="left"
           placeholder="Name"
@@ -44,7 +44,7 @@ const SignupForm = (props) => {
         <Field
           component={FormInput}
           as={Input}
-          name='password'
+          name="password"
           iconPosition="left"
           placeholder="Password"
           icon="lock"
@@ -55,7 +55,7 @@ const SignupForm = (props) => {
         <Field
           component={FormInput}
           as={Input}
-          name='passwordRepeat'
+          name="passwordRepeat"
           iconPosition="left"
           placeholder="Repeat Password"
           icon="lock"
@@ -64,14 +64,14 @@ const SignupForm = (props) => {
       </Form.Field>
       <Form.Field>
         <label>
-        <Field
-          component={FormInput}
-          as={Checkbox}
-          name='termsAccepted'
-          label={(
-            <label>I agree to the <a target="_blank" href="/terms">Terms of Service</a></label>
-          )}
-        />
+          <Field
+            component={FormInput}
+            as={Checkbox}
+            name="termsAccepted"
+            label={(
+              <label>I agree to the <a target="_blank" href="/terms">Terms of Service</a></label>
+            )}
+          />
         </label>
       </Form.Field>
       <Button

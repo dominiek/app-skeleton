@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Grid,
-  Divider,
-  Header,
-  Form,
   Segment,
   Button,
-  Input,
   Message
 } from 'semantic-ui-react';
 
@@ -24,18 +20,20 @@ export default class FatalError extends Component {
           <Grid.Column style={{ maxWidth: 450 }}>
             <Segment.Group>
               <Segment>
-              <Message error size='large'>
-                <Message.Header>Fatal Error</Message.Header>
-                <Message.Content>
-                  { message }
-                </Message.Content>
-              </Message>
-              <Button
-                fluid error primary
-                as={Link}
-                to="/logout"
-                content='Logout and Login Again'
-              />
+                <Message error size="large">
+                  <Message.Header>Fatal Error</Message.Header>
+                  <Message.Content>
+                    { message }
+                  </Message.Content>
+                </Message>
+                <Button
+                  fluid
+                  error
+                  primary
+                  as={Link}
+                  to="/logout"
+                  content="Logout and Login Again"
+                />
               </Segment>
             </Segment.Group>
           </Grid.Column>
