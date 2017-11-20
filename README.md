@@ -52,3 +52,10 @@ UI is running at [http://localhost:3000/](http://localhost:3000/)
 * `src/components` - Home of all React components
 * `src/containers/*` - Components that are tightly coupled to the app pages
 * `src/index.js` - Main entrypoint into application. Multi-app or sub-domain specific apps/logic could be implemented here.
+
+## TODO
+
+- [ ] Finalize directory structure
+- [ ] Add user state (name in dropdown menu)
+- [ ] Hook up reset password flow
+- [ ] Focus first input box on load for forms

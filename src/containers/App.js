@@ -1,18 +1,29 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
+import { isLoggedIn } from 'utils/authentication';
 
-import Login from './Login';
-import Landing from './Landing';
+import authenticationRoutes from './Authentication/routes';
+import dashboardRoutes from './Dashboard/routes';
+import homepageRoutes from './Homepage/routes';
+
+import Login from './Authentication/Login';
+import Home from './Homepage/Home';
 
 const App = ({ store, history }) => {
+  let routes = [];
+  routes = routes.concat(authenticationRoutes());
+  if (isLoggedIn()) {
+    routes = routes.concat(dashboardRoutes());
+  } else {
+    routes = routes.concat(homepageRoutes());
+  }
   return (
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/" component={Landing} />
+          { routes }
         </Switch>
       </ConnectedRouter>
     </Provider>

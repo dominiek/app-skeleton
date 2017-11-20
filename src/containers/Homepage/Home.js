@@ -26,12 +26,10 @@ const FixedMenu = () => (
       <Menu.Item as="a">Careers</Menu.Item>
       <Menu.Menu position="right">
         <Menu.Item className="item">
-          <Button to="/login" as={Link}>Log in</Button>
+          <Button to="/login" as={Link}>Log In</Button>
         </Menu.Item>
         <Menu.Item>
-          <Button as="a" primary>
-            Sign Up
-          </Button>
+          <Button to="/signup" as={Link} primary>Sign Up</Button>
         </Menu.Item>
       </Menu.Menu>
     </Container>
@@ -71,9 +69,9 @@ export default class HomepageLayout extends Component {
                 <Menu.Item as="a">Careers</Menu.Item>
                 <Menu.Item position="right">
                   <Button to="/login" as={Link} inverted>
-                    Log in
+                    Log In
                   </Button>
-                  <Button as="a" inverted style={{ marginLeft: '0.5em' }}>
+                  <Button to="/signup" as={Link} inverted style={{ marginLeft: '0.5em' }}>
                     Sign Up
                   </Button>
                 </Menu.Item>

@@ -41,7 +41,7 @@ export default function request(options) {
         if (!response) reject(new Error('Null JSON response from API'));
         const { error, result } = response;
         if (error) {
-          return reject(new Error(`Error from API: ${error.message}`));
+          return reject(new Error(error.message));
         }
         return resolve(result, response);
       }).catch(error => reject(error));
