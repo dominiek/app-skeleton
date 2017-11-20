@@ -1,4 +1,6 @@
 
+_This app skeleton works with [Node.js API Skeleton](https://github.com/dominiek/node-api-skeleton)_
+
 # Simple JS App Skeleton
 
 Here's an app skeleton that binds together common frameworks du-jour:
@@ -8,7 +10,7 @@ Here's an app skeleton that binds together common frameworks du-jour:
 * [Webpack](http://webpack.github.io/)
 * [ES6](https://babeljs.io/docs/learn-es2015/)
 * [React](https://facebook.github.io/react/)
-* [React Router](https://github.com/reactjs/react-router)
+* [React Router V4](https://github.com/reactjs/react-router)
 * [Redux](https://redux.js.org/)
 * [Redux Form](https://redux-form.com)
 * [Eslint](https://eslint.org/)
@@ -17,9 +19,10 @@ _Note: The purpose of this skeleton is to provide a simple UI skeleton that can 
 
 ## Other Features
 
-* Seemless pushState routing using React Router
-* Uses Webpack/HTMLWebpackPlugin to generate an index.html that has cache friendly bundle loaders
+* Seemless pushState routing using React Router V4
+* Full login/signup flow with separate dashboard and homepage router
 * All CSS and assets served via Webpack/StyleLoader
+* Uses Webpack/HTMLWebpackPlugin to generate an index.html that has cache friendly bundle loaders
 * Uses Semantic UI as a rich UI element base
 * Bundles are split between vendor and app for better bundling/loading performance
 * Uses ES6 style React components
@@ -55,10 +58,9 @@ UI is running at [http://localhost:3000/](http://localhost:3000/)
 
 ## TODO
 
-- [ ] Lint
-- [ ] Clean up utils
-- [ ] Finalize directory structure
-- [ ] Add user state (name in dropdown menu)
-- [ ] Use redux for user state
+- [x] Clean up utils
+- [x] Finalize directory structure
+- [x] Add user state (name in dropdown menu)
+- [ ] Add settings section
 - [ ] Hook up reset password flow
 - [ ] Focus first input box on load for forms

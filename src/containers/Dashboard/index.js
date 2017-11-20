@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import {
   Container,
   Dropdown,
@@ -12,6 +12,7 @@ import { attachPromiseToComponentState } from 'utils/async';
 import FatalError from 'components/FatalError';
 import PageLoader from 'components/PageLoader';
 import Home from './Home';
+import Settings from './Settings';
 
 export default class App extends Component {
   state = {
@@ -52,7 +53,13 @@ export default class App extends Component {
           </Container>
         </Menu>
         <Container>
-          <Route exact path="/" component={Home} />
+          <Switch>
+            <Route
+              path="/settings"
+              component={(props) => (<Settings {...props} self={self} />)}
+            />
+            <Route exact path="/" component={Home} />
+          </Switch>
         </Container>
       </div>
     );
