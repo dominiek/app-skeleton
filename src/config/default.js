@@ -1,3 +1,4 @@
 export default {
-  apiRoot: 'http://localhost:3005'
+  apiRoot: 'http://localhost:1306',
+  name: 'Moonfish'
 };

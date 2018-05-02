@@ -1,0 +1,30 @@
+import React from 'react';
+import { observer, inject } from 'mobx-react';
+import { Route } from 'react-router-dom';
+
+@inject('auth')
+@observer
+export default class AuthSwitchRoute extends React.Component {
+  render() {
+    const {
+      auth,
+      loggedIn: LoggedInComponent,
+      loggedOut: LoggedOutComponent,
+      to,
+      exact
+    } = this.props;
+    return (
+      <Route
+        to={to}
+        exact={exact}
+        render={(props) => {
+          return auth.token ? (
+            <LoggedInComponent {...props} />
+          ) : (
+            <LoggedOutComponent {...props} />
+          );
+        }}
+      />
+    );
+  }
+}

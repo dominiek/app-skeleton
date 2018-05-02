@@ -2,22 +2,24 @@ import qsStringify from './queryStringify';
 import config from 'config';
 
 export default function request(options) {
-  const {
-    path,
-    method,
-    body,
-    params,
-    token
-  } = Object.assign({
-    method: 'GET',
-  }, options);
+  const { path, method, body, params, token } = Object.assign(
+    {
+      method: 'GET'
+    },
+    options
+  );
 
-  const headers = Object.assign({
-    Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }, options.headers || {});
+  const headers = Object.assign(
+    {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    options.headers || {}
+  );
 
-  const paramsPath = Object.keys(params || {}).length ? `?${qsStringify(params)}` : '';
+  const paramsPath = Object.keys(params || {}).length
+    ? `?${qsStringify(params)}`
+    : '';
   const endpoint = `${config.apiRoot}/${path.replace(/^\//, '')}${paramsPath}`;
   if (token) headers.Authorization = `Bearer ${token}`;
   let promise;
@@ -26,25 +28,25 @@ export default function request(options) {
   } else {
     promise = fetch(endpoint, { method, headers, body: JSON.stringify(body) });
   }
-  return new Promise((resolve, reject) => {
-    promise.then(res => {
-      if (![200, 201].includes(res.status)) {
-        return reject(new Error('Bad status code from API'));
+
+  return promise.then((res) => {
+    if (res.status === 204) return undefined;
+
+    return res.text().then((response) => {
+      let json;
+      try {
+        json = JSON.parse(response);
+      } catch (e) {
+        throw new Error('Bad JSON response from API');
       }
-      return res.text().then(data => {
-        let response;
-        try {
-          response = JSON.parse(data);
-        } catch (e) {
-          return reject(new Error('Bad JSON response from API'));
-        }
-        if (!response) reject(new Error('Null JSON response from API'));
-        const { error, result } = response;
-        if (error) {
-          return reject(new Error(error.message));
-        }
-        return resolve(result, response);
-      }).catch(error => reject(error));
-    }).catch(error => reject(error));
+      if (!json) throw new Error('Null JSON response from API');
+      const { error } = json;
+      if (error) {
+        const err = new Error(error.message);
+        err.status = res.status;
+        throw err;
+      }
+      return json;
+    });
   });
 }
