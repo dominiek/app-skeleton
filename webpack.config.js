@@ -17,8 +17,6 @@ const plugins = [
   }),
   new webpack.DefinePlugin({
     ENV: JSON.stringify(ENV),
-    PRODUCTION_HOSTNAME: JSON.stringify('moonfish.one'),
-    STAGING_HOSTNAME: JSON.stringify('moonfish-staging.one'),
     'process.env': {
       // For react building https://facebook.github.io/react/docs/optimizing-performance.html#use-the-production-build
       NODE_ENV: JSON.stringify(ENV)

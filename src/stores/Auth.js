@@ -26,6 +26,24 @@ export default class AuthStore extends BaseStore {
   }
 
   @action
+  setPassword(body, statusKey) {
+    const status = this.createStatus(statusKey);
+    return request({
+      method: 'POST',
+      path: '/1/auth/set-password',
+      body
+    })
+      .then((resp) => {
+        this.token = resp.data.token;
+        status.success();
+      })
+      .catch((err) => {
+        status.error(err);
+        return err;
+      });
+  }
+
+  @action
   login(body, statusKey) {
     const status = this.createStatus(statusKey);
     return request({
@@ -33,12 +51,13 @@ export default class AuthStore extends BaseStore {
       path: '/1/auth/login',
       body: body
     })
-      .then(({ data }) => {
-        this.token = data.token;
-        status.done();
+      .then((resp) => {
+        this.token = resp.data.token;
+        status.success();
       })
       .catch((err) => {
         status.error(err);
+        return err;
       });
   }
 
@@ -51,10 +70,11 @@ export default class AuthStore extends BaseStore {
       body
     })
       .then(() => {
-        status.done();
+        status.success();
       })
       .catch((err) => {
         status.error(err);
+        return err;
       });
   }
 
@@ -68,10 +88,11 @@ export default class AuthStore extends BaseStore {
     })
       .then(({ data }) => {
         this.token = data.token;
-        status.done();
+        status.success();
       })
       .catch((err) => {
         status.error(err);
+        return err;
       });
   }
 }

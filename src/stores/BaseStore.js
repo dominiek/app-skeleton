@@ -6,7 +6,7 @@ export default class BaseStore {
   createStatus(statusKey) {
     this.setStatus(statusKey, 'request');
     return {
-      done: () => this.setStatus(statusKey, 'done'),
+      success: () => this.setStatus(statusKey, 'success'),
       error: (err) => this.setStatus(statusKey, 'error', err),
       key: statusKey
     };
@@ -16,10 +16,10 @@ export default class BaseStore {
   setStatus(id, status, value = true) {
     if (
       typeof status === 'string' &&
-      !['request', 'done', 'error'].includes(status)
+      !['request', 'success', 'error'].includes(status)
     ) {
       throw Error(
-        `setStatus(${id}, status) needs to be either "request", "done", "error" got ${status}`
+        `setStatus(${id}, status) needs to be either "request", "success", "error" got ${status}`
       );
     }
     if (status === 'error') {
@@ -30,13 +30,13 @@ export default class BaseStore {
       }
       this.status.set(id, { type: status, error: value });
     } else {
-      this.status.set(id, { type: status });
+      this.status.set(id, { type: status, [status]: true });
     }
   }
 
   handleStatusFromPromise(statusKey, promise) {
     const status = this.createStatus(statusKey);
-    return promise.then(() => status.done()).catch((err) => {
+    return promise.then(() => status.success()).catch((err) => {
       status.error(err);
     });
   }

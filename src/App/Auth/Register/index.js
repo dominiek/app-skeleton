@@ -59,7 +59,8 @@ export default class Signup extends React.Component {
         { ...omit(body, ['email']), token: this.state.token },
         'register'
       )
-      .then(() => {
+      .then((result) => {
+        if (result instanceof Error) return;
         this.props.routing.push('/');
       });
   };

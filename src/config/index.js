@@ -11,10 +11,10 @@ function log(message) {
 }
 
 let tmp = defaultConfig;
-if (hostname === STAGING_HOSTNAME) {
+if (hostname.match('staging')) {
   log('staging env');
   tmp = deepMerge(defaultConfig, stagingConfig);
-} else if (hostname === PRODUCTION_HOSTNAME) {
+} else if (!['localhost', '0.0.0.0'].includes(hostname)) {
   log('prod env');
   tmp = deepMerge(defaultConfig, productionConfig);
 } else {

@@ -64,10 +64,10 @@ export default class Signup extends React.Component {
                   <Message info size="huge">
                     <Message.Header>Check your email!</Message.Header>
                     <p>
-                      We’ve sent a confirmation link to{' '}
+                      We’ve sent a confirmation email to{' '}
                       <b>{this.state.email}</b>.
                       <br />
-                      It will expire after shortly, so activate it soon.
+                      It will expire after 24 hours, so activate it soon.
                     </p>
                   </Message>
                 </div>

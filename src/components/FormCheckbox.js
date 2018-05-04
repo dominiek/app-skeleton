@@ -3,9 +3,7 @@ import { Form } from 'semantic-ui-react';
 
 export default function FormInput({
   input,
-  type,
   label,
-  placeholder,
   as: As = Form.Checkbox,
   meta,
   ...props

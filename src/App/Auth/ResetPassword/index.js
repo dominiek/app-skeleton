@@ -1,7 +1,7 @@
 import React from 'react';
 import { Segment, Message } from 'semantic-ui-react';
+import { observer, inject } from 'mobx-react';
 
-import request from 'utils/request';
 import PageCenter from 'components/PageCenter';
 import LogoTitle from 'components/LogoTitle';
 import ApplyForm from './Form';
@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom';
 
 import { getToken, parseToken } from 'utils/token';
 
+@inject('auth')
+@observer
 export default class ResetPassword extends React.Component {
   constructor(props) {
     super(props);
@@ -21,25 +23,18 @@ export default class ResetPassword extends React.Component {
   }
 
   onSubmit = (body) => {
-    return request({
-      method: 'POST',
-      path: '/1/auth/set-password',
-      body: {
+    return this.props.auth.setPassword(
+      {
         ...body,
         token: this.state.token
-      }
-    })
-      .then(() => {
-        this.setState({ success: true, error: null });
-      })
-      .catch((c) => {
-        this.setState({ error: c });
-      });
+      },
+      'set-password'
+    );
   };
 
   render() {
-    const { success, token, jwt } = this.state;
-
+    const { token, jwt } = this.state;
+    const status = this.props.auth.getStatus('set-password');
     return (
       <PageCenter>
         <LogoTitle title="Reset Password" />
@@ -56,15 +51,15 @@ export default class ResetPassword extends React.Component {
                 </Message>
               </p>
             )}
-            {success && (
+            {status.success && (
               <Message info>
                 <Message.Header>Your password has been changed!</Message.Header>
                 <p>
-                  Click here to <Link to="/login">Log In</Link>
+                  Click here to open the <Link to="/">Dashboard</Link>
                 </p>
               </Message>
             )}
-            {!success &&
+            {!status.success &&
               token &&
               jwt && <Form onSubmit={this.onSubmit} render={ApplyForm} />}
           </Segment>
