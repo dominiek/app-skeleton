@@ -1,4 +1,4 @@
-FROM node:8.11.1-alpine
+FROM node:10.0-alpine
 
 RUN apk add --no-cache bash git python make g++ bash yarn
 

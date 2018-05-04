@@ -5,11 +5,13 @@ import ReactDOM from 'react-dom';
 
 import createHistory from 'history/createBrowserHistory';
 import { syncHistoryWithStore, RouterStore } from 'mobx-react-router';
-import { useStrict } from 'mobx';
+import { configure } from 'mobx';
 import Router from './Router';
 import AuthStore from 'stores/Auth';
 
-useStrict(true);
+configure({
+  enforceActions: 'strict'
+});
 
 const routing = new RouterStore();
 const history = syncHistoryWithStore(createHistory(), routing);
