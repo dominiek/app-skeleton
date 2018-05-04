@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -59,7 +59,7 @@ HomepageHeading.propTypes = {
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
  * It can be more complicated, but you can create really flexible markup.
  */
-class DesktopContainer extends Component {
+class DesktopContainer extends React.Component {
   state = {};
 
   hideFixedMenu = () => this.setState({ fixed: false });
@@ -124,7 +124,7 @@ DesktopContainer.propTypes = {
   children: PropTypes.node
 };
 
-class MobileContainer extends Component {
+class MobileContainer extends React.Component {
   state = {};
 
   handlePusherClick = () => {

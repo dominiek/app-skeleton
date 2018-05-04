@@ -1,30 +1,10 @@
-import { observable, action, reaction } from 'mobx';
+import { action } from 'mobx';
 import BaseStore from './BaseStore';
 import request from 'utils/request';
 
+import appSession from 'stores/AppSession';
+
 export default class AuthStore extends BaseStore {
-  @observable currentUser;
-  @observable token = window.localStorage.getItem('jwt');
-
-  constructor() {
-    super();
-    reaction(
-      () => this.token,
-      (token) => {
-        if (token) {
-          window.localStorage.setItem('jwt', token);
-        } else {
-          window.localStorage.removeItem('jwt');
-        }
-      }
-    );
-  }
-
-  @action
-  logout() {
-    this.token = null;
-  }
-
   @action
   setPassword(body, statusKey) {
     const status = this.createStatus(statusKey);
@@ -34,7 +14,7 @@ export default class AuthStore extends BaseStore {
       body
     })
       .then((resp) => {
-        this.token = resp.data.token;
+        appSession.setToken(resp.data.token);
         status.success();
       })
       .catch((err) => {
@@ -52,7 +32,7 @@ export default class AuthStore extends BaseStore {
       body: body
     })
       .then((resp) => {
-        this.token = resp.data.token;
+        appSession.setToken(resp.data.token);
         status.success();
       })
       .catch((err) => {
@@ -86,8 +66,8 @@ export default class AuthStore extends BaseStore {
       path: '/1/auth/register',
       body
     })
-      .then(({ data }) => {
-        this.token = data.token;
+      .then((resp) => {
+        appSession.setToken(resp.data.token);
         status.success();
       })
       .catch((err) => {

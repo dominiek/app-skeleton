@@ -8,7 +8,7 @@ export default class Home extends React.Component {
     const { me } = this.props;
     return (
       <div>
-        Welcome back {me.user.name} ({me.user.email})
+        From Settings {me.user.name} ({me.user.email})
       </div>
     );
   }
