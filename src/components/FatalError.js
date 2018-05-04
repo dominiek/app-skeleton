@@ -1,30 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Grid,
-  Segment,
-  Button,
-  Message
-} from 'semantic-ui-react';
+import { Grid, Segment, Button, Message } from 'semantic-ui-react';
 
-export default class FatalError extends Component {
+export default class FatalError extends React.Component {
   render() {
     const { message } = this.props;
     return (
       <div style={{ height: '100%' }} className="fatal-error">
-        <Grid
-          style={{ height: '100%' }}
-          centered
-          verticalAlign="middle"
-        >
+        <Grid style={{ height: '100%' }} centered verticalAlign="middle">
           <Grid.Column style={{ maxWidth: 450 }}>
             <Segment.Group>
               <Segment>
                 <Message error size="large">
                   <Message.Header>Fatal Error</Message.Header>
-                  <Message.Content>
-                    { message }
-                  </Message.Content>
+                  <Message.Content>{message}</Message.Content>
                 </Message>
                 <Button
                   fluid
