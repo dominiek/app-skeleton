@@ -1,10 +1,12 @@
 import qsStringify from './queryStringify';
 import config from 'config';
+import appSession from 'stores/AppSession';
 
 export default function request(options) {
   const { path, method, body, params, token } = Object.assign(
     {
-      method: 'GET'
+      method: 'GET',
+      token: appSession.token
     },
     options
   );

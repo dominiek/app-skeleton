@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Segment, Button, Message } from 'semantic-ui-react';
 
-export default class FatalError extends Component {
+export default class FatalError extends React.Component {
   render() {
     const { message } = this.props;
     return (
