@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    "mobx-deep-action"
+  ],
+  "presets": ["es2015", "react"]
+}

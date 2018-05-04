@@ -1,66 +1,98 @@
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var path = require('path')
-var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const extractLess = new ExtractTextPlugin({
+  filename: '[name]-[hash].css'
+});
+
+const isProduction = process.argv.indexOf('-p') >= 0;
+const ENV = isProduction ? 'production' : 'development';
+
+const plugins = [
+  new webpack.ProvidePlugin({
+    fetch:
+      'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
+  }),
+  new webpack.DefinePlugin({
+    ENV: JSON.stringify(ENV),
+    'process.env': {
+      // For react building https://facebook.github.io/react/docs/optimizing-performance.html#use-the-production-build
+      NODE_ENV: JSON.stringify(ENV)
+    }
+  }),
+  new HtmlWebpackPlugin({
+    chunks: ['vendor', 'app'],
+    template: 'src/App/index.html',
+    filename: 'index.html'
+  }),
+  new HtmlWebpackPlugin({
+    chunks: ['vendor', 'admin'],
+    template: 'src/Admin/index.html',
+    filename: 'admin.html'
+  }),
+  // This is necessary to emit hot updates (currently CSS only):
+  new webpack.HotModuleReplacementPlugin(),
+  extractLess
+];
 
 module.exports = {
+  devtool: isProduction ? 'source-maps' : 'cheap-module-source-map',
   entry: {
-    vendor: ['jquery', 'async', 'react', 'react-dom', 'react-router'],
-    app: './src/main.jsx'
+    app: ['./src/App/index'],
+    admin: ['./src/Admin/index']
   },
   output: {
     publicPath: '/',
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].[hash].js'
+    filename: '[name].[hash].bundle.js',
+    chunkFilename: '[name].chunk-[hash].bundle.js',
+    path: path.join(__dirname, 'dist')
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      minify: false
-    }),
-    new webpack.ProvidePlugin({
-      '$': 'jquery',
-      'jQuery': 'jquery',
-      'window.jQuery': 'jquery'
-    })
-  ],
   resolve: {
-    extensions: ['.js', '.jsx'],
-    modules: [path.join(__dirname, 'src', 'components'), path.join(__dirname, 'src'), 'node_modules']
+    alias: {
+      '../../theme.config$': path.resolve(
+        path.join(__dirname, 'src'),
+        'theme/theme.config'
+      )
+    },
+    extensions: ['.js', '.json', '.jsx'],
+    modules: [path.join(__dirname, 'src'), 'node_modules']
   },
   module: {
-    loaders: [
-
-      // JS/JSX React/ES6
+    rules: [
       {
-        test: /\.js[x]?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react'],
-          plugins: [
-            'add-module-exports'
-          ]
-        }
+        test: /\.jsx?$/,
+        use: ['babel-loader'],
+        exclude: /node_modules/
       },
-
-      // CSS
       {
-        include: /\.css$/,
-        loaders: ['style-loader', 'css-loader']
+        test: /\.less$/,
+        use: extractLess.extract({
+          fallback: {
+            loader: 'style-loader'
+          },
+          use: ['css-loader', 'less-loader']
+        })
       },
-
-      // Fonts
       {
-        test: /\.woff/,
+        test: /\.(eot|png|jpg|ttf|svg|gif)$/,
+        use: ['file-loader']
+      },
+      {
+        test: /\.(pdf)$/,
+        loader:
+          'file-loader?name=[name].[ext]&outputPath=downloads/&publicPath=downloads/'
+      },
+      {
+        test: /\.woff(2)?(\?v=\d\.\d\.\d)?$/,
         loader: 'url-loader?limit=10000&minetype=application/font-woff'
       },
-
-      // SVG
       {
-        test: /\.(eot|png|ttf|svg)/,
-        loader: 'file-loader'
+        test: /\.(md)$/,
+        use: 'raw-loader'
       }
     ]
-  }
-}
+  },
+  plugins
+};
