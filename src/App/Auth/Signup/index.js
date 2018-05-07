@@ -59,7 +59,7 @@ export default class Signup extends React.Component {
               </Link>
             </div>
             <div className="content">
-              {status.type === 'done' ? (
+              {status.success ? (
                 <div className="wrapper">
                   <Message info size="huge">
                     <Message.Header>Check your email!</Message.Header>
