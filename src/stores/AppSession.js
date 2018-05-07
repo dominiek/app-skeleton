@@ -20,11 +20,6 @@ class AppSession {
   @action
   setToken(token) {
     this.token = token;
-    if (token) {
-      window.localStorage.setItem('jwt', token);
-    } else {
-      window.localStorage.removeItem('jwt');
-    }
   }
 
   @action
