@@ -33,7 +33,6 @@ export default (props) => {
           placeholder="Password"
           autoComplete="current-password"
           type="password"
-          validate={password}
         />
       </Form.Field>
       <Button fluid primary size="large" content="Login" loading={submitting} />
