@@ -23,7 +23,7 @@ export default class Login extends React.Component {
   onSubmit = (body) => {
     return this.props.auth.login(body, 'login').then((result) => {
       if (result instanceof Error) return;
-      this.props.routing.push('/');
+      this.props.routing.replace('/');
     });
   };
 

@@ -14,6 +14,7 @@ export default class AuthStore extends BaseStore {
       body
     })
       .then((resp) => {
+        appSession.reset();
         appSession.setToken(resp.data.token);
         status.success();
       })
@@ -32,6 +33,7 @@ export default class AuthStore extends BaseStore {
       body: body
     })
       .then((resp) => {
+        appSession.reset();
         appSession.setToken(resp.data.token);
         status.success();
       })
@@ -50,6 +52,7 @@ export default class AuthStore extends BaseStore {
       body
     })
       .then(() => {
+        appSession.reset();
         status.success();
       })
       .catch((err) => {
@@ -67,6 +70,7 @@ export default class AuthStore extends BaseStore {
       body
     })
       .then((resp) => {
+        appSession.reset();
         appSession.setToken(resp.data.token);
         status.success();
       })

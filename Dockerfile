@@ -7,7 +7,7 @@ RUN mkdir -p /tmp/dependencies
 ADD package-lock.json /tmp/dependencies/package-lock.json
 ADD package.json /tmp/dependencies/package.json
 ADD .babelrc /tmp/dependencies/.babelrc
-RUN cd /tmp/dependencies; npm ci && \
+RUN cd /tmp/dependencies; npm install && \
   mkdir -p /app && \
   mv /tmp/dependencies/node_modules /app/. && \
   rm -rf /tmp/dependencies

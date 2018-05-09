@@ -1,8 +1,5 @@
-import { hot } from 'react-hot-loader';
-
 import React from 'react';
-import { withRouter, Switch } from 'react-router-dom';
-
+import { Switch, withRouter } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 import PageCenter from 'components/PageCenter';
 import PageLoader from 'components/PageLoader';
@@ -10,19 +7,24 @@ import PageLoader from 'components/PageLoader';
 @inject('appSession', 'me')
 @withRouter
 @observer
-class App extends React.Component {
+export default class Boot extends React.Component {
   componentWillMount() {
-    const { appSession } = this.props;
-    if (!appSession.token) appSession.setLoaded();
+    this.handleLoading();
   }
 
-  componentDidMount() {
+  componentWillReact() {
+    this.handleLoading();
+  }
+
+  handleLoading() {
     const { appSession, me } = this.props;
     if (appSession.token) {
       me.fetch().then(() => {
         appSession.setLoaded();
       });
+      return;
     }
+    appSession.setLoaded();
   }
 
   render() {
@@ -33,9 +35,6 @@ class App extends React.Component {
         </PageCenter>
       );
     }
-
     return <Switch>{this.props.children}</Switch>;
   }
 }
-
-export default hot(module)(App);
