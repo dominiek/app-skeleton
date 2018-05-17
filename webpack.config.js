@@ -32,8 +32,6 @@ const plugins = [
     template: 'src/Admin/index.html',
     filename: 'admin.html'
   }),
-  // This is necessary to emit hot updates (currently CSS only):
-  new webpack.HotModuleReplacementPlugin(),
   extractLess
 ];
 

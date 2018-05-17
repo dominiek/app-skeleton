@@ -28,8 +28,9 @@ class AppSession {
   }
 
   @action
-  logout() {
+  reset() {
     this.token = null;
+    this.loaded = null;
   }
 }
 

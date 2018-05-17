@@ -4,8 +4,8 @@ import { inject } from 'mobx-react';
 @inject('appSession', 'routing')
 export default class Logout extends React.Component {
   componentDidMount() {
-    this.props.appSession.logout();
-    this.props.routing.push('/');
+    this.props.appSession.reset();
+    window.location.href = '/';
   }
   render() {
     return <div />;
