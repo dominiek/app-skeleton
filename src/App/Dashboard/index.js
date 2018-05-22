@@ -1,15 +1,13 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
+import AppWrapper from 'components/AppWrapper';
 
 @inject('me')
 @observer
 export default class Home extends React.Component {
   render() {
-    const { me } = this.props;
     return (
-      <div>
-        Welcome back {me.user.name} ({me.user.email})
-      </div>
+      <AppWrapper>Hello {this.props.me.user.name} from dashboard</AppWrapper>
     );
   }
 }
