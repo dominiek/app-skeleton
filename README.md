@@ -1,4 +1,4 @@
-_This app skeleton works with [Node.js API Skeleton](https://github.com/dominiek/node-api-skeleton)_
+Note: This has been moved to https://github.com/dominiek/sharkbone
 
 # Simple JS App Skeleton
 
