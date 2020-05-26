@@ -1,4 +1,4 @@
-Note: This has been moved to https://github.com/dominiek/sharkbone
+Note: This has been moved to https://github.com/bedrockio/bedrock-core
 
 # Simple JS App Skeleton
 
